@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Chicken Party</title>
+<style>
+    body { background-color: yellow; text-align: center; font-family: Arial; font-size: 35px; font-weight: bold; color: black; overflow: hidden; }
+    #chicken-img { display: none; margin-top: 20px; }
+    .character { position: absolute; width: 80px; height: auto; animation: fly 20s linear infinite; }
+    @keyframes fly {
+        0% { transform: translate(-100px, 0); }
+        50% { transform: translate(calc(100vw - 100px), calc(100vh - 100px)); }
+        100% { transform: translate(-100px, 0); }
+    }
+</style>
+</head>
+<body>
+<p>NGÀY MAI (11/8/25) TANTAI MỜI ĐẠI GIA ĐÌNH VINAHOUSE TIỆC CHICKEN+ Ạ<br>
+MOM NÀO RẢNH THÌ THẢ CL TẠI ĐÂY NHA.<br>
+Time: 5PM; Venue: Ho Thi Thanh Thao Branch (tao không nhớ địa chỉ cụ thể bây ơi)</p>
+<button onclick="showChicken()">XIN PHÉP THẢ CL</button>
+<div><img id="chicken-img" src="images/2a8919d3-5be8-4430-a751-03a5ec360b52.png" alt="Chicken"></div>
+
+<script>
+function showChicken() {
+    document.getElementById("chicken-img").style.display = "block";
+    const characters = [
+        "1000020793.jpg",
+        "1000020792.jpg",
+        "1000020796.jpg",
+        "1000020798.jpg",
+        "1000020795.jpg",
+        "1000020797.jpg",
+        "1000020794.jpg"
+    ];
+    characters.forEach((char, i) => {
+        let img = document.createElement("img");
+        img.src = "images/" + char;
+        img.className = "character";
+        img.style.top = Math.random() * (window.innerHeight - 100) + "px";
+        img.style.left = Math.random() * (window.innerWidth - 100) + "px";
+        img.style.animationDelay = (i * 1) + "s";
+        document.body.appendChild(img);
+    });
+    setTimeout(() => {
+        document.querySelectorAll(".character").forEach(el => el.remove());
+    }, 600000); // 10 phút
+}
+</script>
+</body>
+</html>
